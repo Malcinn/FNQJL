@@ -1,0 +1,18 @@
+<hazelcast xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.hazelcast.com/schema/config
+           http://www.hazelcast.com/schema/config/hazelcast-config-5.3.xsd">
+
+    <cache name="users">
+        <key-type class-name="java.lang.String"/>
+        <value-type class-name="com.empik.usersservice.data.UserDTO"/>
+        <statistics-enabled>false</statistics-enabled>
+        <management-enabled>true</management-enabled>
+        <read-through>true</read-through>
+        <write-through>true</write-through>
+        <expiry-policy-factory>
+            <timed-expiry-policy-factory expiry-policy-type="CREATED" time-unit="MINUTES" duration-amount="5"/>
+        </expiry-policy-factory>
+    </cache>
+
+</hazelcast>
