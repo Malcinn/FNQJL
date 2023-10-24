@@ -1,6 +1,7 @@
 package com.empik.usersservice.repository;
 
 import com.empik.usersservice.entity.UserStats;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +12,6 @@ import org.springframework.stereotype.Repository;
  * @author Marcin Kowalczyk (marcinkowalczyk1992@gmail.com)
  */
 @Repository
-public interface UserStatsRepository extends CrudRepository<UserStats, String> {
+public interface UserStatsRepository extends JpaRepository<UserStats, String> {
 }
+

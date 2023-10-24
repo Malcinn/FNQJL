@@ -21,10 +21,15 @@ public class UsersServiceApplication {
     }
 
     @Bean
-    public RestTemplate restTemplate(LoggingRequestResponseInterceptor loggingRequestResponseInterceptor) {
+    public RestTemplate restTemplate() {
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.setInterceptors(List.of(loggingRequestResponseInterceptor));
+        restTemplate.setInterceptors(List.of(loggingRequestResponseInterceptor()));
         return restTemplate;
+    }
+
+    @Bean
+    public LoggingRequestResponseInterceptor loggingRequestResponseInterceptor(){
+        return new LoggingRequestResponseInterceptor();
     }
 
 }

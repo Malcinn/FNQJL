@@ -13,6 +13,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -41,7 +42,7 @@ public class UsersController {
      * @throws FetchUserException
      */
     @GetMapping(value = "/users/{login}")
-    public ResponseEntity<UserWsDTO> getUser(@PathVariable String login) throws FetchUserException {
+    public ResponseEntity<UserWsDTO> getUser(@PathVariable @NonNull String login) throws FetchUserException {
         LOGGER.info("Getting user data for login {}", login);
         applicationEventPublisher.publishEvent(new UserStatsEvent(this, login));
         UserDTO userDTO = usersService.fetchUser(login);

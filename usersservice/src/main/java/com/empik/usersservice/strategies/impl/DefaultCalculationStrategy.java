@@ -15,7 +15,7 @@ import java.util.Objects;
 public class DefaultCalculationStrategy implements CalculationStrategy {
     @Override
     public Double calculate(UserDTO userDTO) {
-        if (Objects.nonNull(userDTO.getFollowers()) && userDTO.getFollowers() > 0 &&
+        if (Objects.nonNull(userDTO) && Objects.nonNull(userDTO.getFollowers()) && userDTO.getFollowers() > 0 &&
                 Objects.nonNull(userDTO.getPublic_repos())) {
             return 6.0 / userDTO.getFollowers() * (2 + userDTO.getPublic_repos());
         }

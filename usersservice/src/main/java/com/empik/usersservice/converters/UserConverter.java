@@ -7,6 +7,8 @@ import jakarta.annotation.Resource;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 /**
  * Converter for converting object from {@link UserDTO} to {@link UserWsDTO}
  *
@@ -27,13 +29,15 @@ public class UserConverter implements Converter<UserDTO, UserWsDTO> {
     @Override
     public UserWsDTO convert(UserDTO source) {
         UserWsDTO target = new UserWsDTO();
-        target.setId(source.getId());
-        target.setLogin(source.getLogin());
-        target.setName(source.getName());
-        target.setAvatarUrl(source.getAvatar_url());
-        target.setType(source.getType());
-        target.setCreatedAt(source.getCreated_at());
-        target.setCalculations(calculationStrategy.calculate(source));
+        if (Objects.nonNull(source)) {
+            target.setId(source.getId());
+            target.setLogin(source.getLogin());
+            target.setName(source.getName());
+            target.setAvatarUrl(source.getAvatar_url());
+            target.setType(source.getType());
+            target.setCreatedAt(source.getCreated_at());
+            target.setCalculations(calculationStrategy.calculate(source));
+        }
         return target;
     }
 
