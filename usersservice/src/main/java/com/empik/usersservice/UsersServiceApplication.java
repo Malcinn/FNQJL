@@ -9,6 +9,9 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
+/**
+ * @author Marcin Kowalczyk (marcinkowalczyk1992@gmail.com)
+ */
 @SpringBootApplication
 @EnableCaching
 public class UsersServiceApplication {

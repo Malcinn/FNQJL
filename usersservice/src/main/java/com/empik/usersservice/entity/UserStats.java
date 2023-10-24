@@ -6,6 +6,9 @@ import jakarta.persistence.Table;
 
 import java.math.BigDecimal;
 
+/**
+ * @author Marcin Kowalczyk (marcinkowalczyk1992@gmail.com)
+ */
 @Entity
 @Table(name = UserStats.TABLE_NAME)
 public class UserStats {

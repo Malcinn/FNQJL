@@ -15,6 +15,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Rest controller for user data operations
+ *
+ * @author Marcin Kowalczyk (marcinkowalczyk1992@gmail.com)
+ */
 @RestController
 public class UsersController {
 
@@ -29,11 +34,11 @@ public class UsersController {
     private ApplicationEventPublisher applicationEventPublisher;
 
     /**
-     * TO TO
-     * ADD TESTS
+     * Method get User data
      *
-     * @param login
-     * @return
+     * @param login user login
+     * @return {@link ResponseEntity}
+     * @throws FetchUserException
      */
     @GetMapping(value = "/users/{login}")
     public ResponseEntity<UserWsDTO> getUser(@PathVariable String login) throws FetchUserException {
@@ -43,10 +48,15 @@ public class UsersController {
         return new ResponseEntity<>(conversionService.convert(userDTO, UserWsDTO.class), HttpStatus.OK);
     }
 
+    /**
+     * Method handles FetchUserException thrown by controller service
+     *
+     * @return {@link ErrorWsDTO}
+     */
     @ResponseStatus(value = HttpStatus.BAD_REQUEST)
     @ResponseBody
     @ExceptionHandler({FetchUserException.class})
-    public ErrorWsDTO handleFetchUserException(final Exception ex) {
+    public ErrorWsDTO handleFetchUserException() {
         ErrorWsDTO error = new ErrorWsDTO();
         error.setErrorCode(HttpStatus.BAD_REQUEST.value());
         error.setMessage("User does not exist or service temporarily unavailable");

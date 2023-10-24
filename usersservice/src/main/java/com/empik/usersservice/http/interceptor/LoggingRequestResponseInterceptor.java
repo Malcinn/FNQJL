@@ -15,6 +15,8 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * Http interceptor for logging API communication
+ *
+ * @author Marcin Kowalczyk (marcinkowalczyk1992@gmail.com)
  */
 @Component
 public class LoggingRequestResponseInterceptor implements ClientHttpRequestInterceptor {

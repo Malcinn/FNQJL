@@ -2,6 +2,9 @@ package com.empik.usersservice.events;
 
 import org.springframework.context.ApplicationEvent;
 
+/**
+ * @author Marcin Kowalczyk (marcinkowalczyk1992@gmail.com)
+ */
 public class UserStatsEvent extends ApplicationEvent {
 
     private String login;

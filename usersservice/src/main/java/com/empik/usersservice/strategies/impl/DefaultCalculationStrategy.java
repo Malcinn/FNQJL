@@ -6,6 +6,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+/**
+ * Default implementation of {@link CalculationStrategy}.
+ *
+ * @author Marcin Kowalczyk (marcinkowalczyk1992@gmail.com)
+ */
 @Component
 public class DefaultCalculationStrategy implements CalculationStrategy {
     @Override

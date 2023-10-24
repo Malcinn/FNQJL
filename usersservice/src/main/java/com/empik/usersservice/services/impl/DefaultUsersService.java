@@ -16,6 +16,11 @@ import javax.cache.annotation.CacheResult;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Service for fetching users data from external system.
+ *
+ * @author Marcin Kowalczyk (marcinkowalczyk1992@gmail.com)
+ */
 @Service
 public class DefaultUsersService implements UsersService {
 
@@ -31,6 +36,13 @@ public class DefaultUsersService implements UsersService {
     @Resource
     private RestTemplate restTemplate;
 
+    /**
+     * Method fetch user data form external system.
+     *
+     * @param login - user login
+     * @return {@link UserDTO}
+     * @throws FetchUserException when HTTTP communication error occurred
+     */
     @CacheResult(cacheName = "users")
     @Override
     public UserDTO fetchUser(String login) throws FetchUserException {

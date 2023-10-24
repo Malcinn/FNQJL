@@ -2,6 +2,9 @@ package com.empik.usersservice.data;
 
 import java.util.Date;
 
+/**
+ * @author Marcin Kowalczyk (marcinkowalczyk1992@gmail.com)
+ */
 public class UserWsDTO {
     private Long id;
     private String login;

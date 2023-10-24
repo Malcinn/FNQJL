@@ -10,6 +10,11 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * Http wrapper class for reading response body multiple times
+ *
+ * @author Marcin Kowalczyk (marcinkowalczyk1992@gmail.com)
+ */
 public final class BufferingClientHttpResponseWrapper implements ClientHttpResponse {
 
     private final ClientHttpResponse response;

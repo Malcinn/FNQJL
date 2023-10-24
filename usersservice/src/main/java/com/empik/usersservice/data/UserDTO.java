@@ -4,6 +4,9 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author Marcin Kowalczyk (marcinkowalczyk1992@gmail.com)
+ */
 public class UserDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 12345L;
